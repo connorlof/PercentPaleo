@@ -1,0 +1,546 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.loftysites.connor.percentpaleo.MainActivity"
+    android:background="#CEE8C3"
+    android:focusable="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/mealLayout"
+        android:visibility="invisible">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="My meal was..."
+            android:id="@+id/mealWasTextView"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:textSize="36sp"
+            android:textColor="#5A6C5C" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/mealSizeRadioGroup"
+            android:layout_below="@+id/mealWasTextView"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="A small meal"
+                android:id="@+id/smallMealRadioButton"
+
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:checked="false"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="An average meal"
+                android:id="@+id/averageMealRadioButton"
+                android:layout_below="@+id/smallMealRadioButton"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:checked="false"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="A large meal"
+                android:id="@+id/largeMealRadioButton"
+                android:layout_below="@+id/averageMealRadioButton"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:checked="false"
+                android:textSize="18sp" />
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="and..."
+            android:id="@+id/andTextView"
+            android:textSize="36sp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:textColor="#5A6C5C" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/mealPaleoRadioGroup"
+            android:layout_below="@+id/andTextView"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Completely Paleo"
+                android:id="@+id/mealCompRadioButton"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:checked="false"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mostly Paleo"
+                android:id="@+id/mostlyMealRadioButton2"
+                android:layout_below="@+id/mealCompRadioButton"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:checked="false"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Not Paleo"
+                android:id="@+id/notMealRadioButton"
+                android:layout_below="@+id/mostlyMealRadioButton2"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:checked="false"
+                android:textSize="18sp" />
+
+        </RadioGroup>
+
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            android:id="@+id/cancelMealButton"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:onClick="cancelOnClick"
+            android:background="#5A6C5C"
+            android:textColor="#CEE8C3"
+            android:textSize="18sp"/>
+
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="Add Meal"
+            android:id="@+id/addMealButton"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:onClick="addMealOnClick"
+            android:background="#5A6C5C"
+            android:textColor="#CEE8C3"
+            android:textSize="18sp"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/snackLayout"
+        android:visibility="invisible">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="My snack was..."
+            android:id="@+id/snackWasTextView"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:textSize="36sp"
+            android:textColor="#5A6C5C" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/snackSizeRadioGroup"
+            android:layout_below="@+id/snackWasTextView"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="A small snack"
+                android:id="@+id/smallSnackRadioButton"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:checked="false"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="A medium sized snack"
+                android:id="@+id/averageSnackRadioButton"
+                android:layout_below="@+id/smallSnackRadioButton"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:checked="false"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="A large snack"
+                android:id="@+id/largeSnackRadioButton"
+                android:layout_below="@+id/averageSnackRadioButton"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:checked="false"
+                android:textSize="18sp" />
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="and..."
+            android:id="@+id/andTextView2"
+            android:textSize="36sp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:textColor="#5A6C5C" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/snackPaleoRadioGroup"
+            android:layout_below="@+id/andTextView2"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="A Paleo friendly snack"
+                android:id="@+id/snackCompRadioButton"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:checked="false"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Not a Paleo friendly snack"
+                android:id="@+id/notSnackRadioButton"
+                android:layout_below="@+id/snackCompRadioButton"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:checked="false"
+                android:textSize="18sp" />
+
+        </RadioGroup>
+
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            android:id="@+id/cancelSnackButton"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:onClick="cancelOnClick"
+            android:background="#5A6C5C"
+            android:textColor="#CEE8C3"
+            android:textSize="18sp"/>
+
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="Add Snack"
+            android:id="@+id/addSnackButton"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:nestedScrollingEnabled="false"
+            android:onClick="addSnackOnClick"
+            android:background="#5A6C5C"
+            android:textColor="#CEE8C3"
+            android:textSize="18sp"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/drinkLayout"
+        android:visibility="invisible">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="My drink was..."
+            android:id="@+id/drinkWasTextView"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:textSize="36sp"
+            android:textColor="#5A6C5C" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/drinkSizeRadioGroup"
+            android:layout_below="@+id/drinkWasTextView"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="A small drink (8 fl oz or less)"
+                android:id="@+id/smallDrinkRadioButton"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:checked="false"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="A medium drink (9-15 fl oz)"
+                android:id="@+id/averageDrinkRadioButton"
+                android:layout_below="@+id/smallDrinkRadioButton"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:checked="false"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="A large drink (16 fl oz or more)"
+                android:id="@+id/largeDrinkRadioButton"
+                android:layout_below="@+id/averageDrinkRadioButton"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:checked="false"
+                android:textSize="18sp" />
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="and..."
+            android:id="@+id/andTextView3"
+            android:textSize="30sp"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:textColor="#5A6C5C" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/drinkPaleoRadioGroup"
+            android:layout_below="@+id/andTextView3"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="A Paleo friendly drink"
+                android:id="@+id/drinkCompRadioButton"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:checked="false"
+                android:textSize="18sp" />
+
+            <RadioButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Not a Paleo friendly drink"
+                android:id="@+id/notDrinkRadioButton"
+                android:layout_below="@+id/drinkCompRadioButton"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:checked="false"
+                android:textSize="18sp" />
+
+        </RadioGroup>
+
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            android:id="@+id/cancelDrinkButton"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:onClick="cancelOnClick"
+            android:background="#5A6C5C"
+            android:textColor="#CEE8C3"
+            android:textSize="18sp"/>
+
+        <Button
+            android:layout_width="120dp"
+            android:layout_height="wrap_content"
+            android:text="Add Drink"
+            android:id="@+id/addDrinkButton"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:onClick="addDrinkOnClick"
+            android:background="#5A6C5C"
+            android:textColor="#CEE8C3"
+            android:textSize="18sp"
+            />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/mainLayout">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="I am currently"
+            android:id="@+id/iAmTextView"
+            android:textSize="42sp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:textColor="#5A6C5C" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="100%"
+            android:id="@+id/percentTextView"
+            android:textSize="124dp"
+            android:layout_below="@+id/iAmTextView"
+            android:layout_centerHorizontal="true"
+            android:textColor="#5A6C5C" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Paleo"
+            android:id="@+id/percentPaleoTextView"
+            android:textSize="42sp"
+            android:layout_below="@+id/percentTextView"
+            android:layout_centerHorizontal="true"
+            android:textColor="#5A6C5C" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="+ Meal"
+            android:id="@+id/mealButton"
+            android:onClick="mealOnClick"
+            android:background="#5A6C5C"
+            android:textColor="#CEE8C3"
+            android:textSize="18sp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:linksClickable="false"
+            />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="+ Snack"
+            android:id="@+id/snackButton"
+            android:onClick="snackOnClick"
+            android:background="#5A6C5C"
+            android:textColor="#CEE8C3"
+            android:textSize="18sp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="I want to add a..."
+            android:id="@+id/wantTextView"
+            android:textSize="36sp"
+            android:textColor="#5A6C5C"
+            android:layout_above="@+id/mealButton"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="+ Drink"
+            android:id="@+id/drinkButton"
+            android:onClick="drinkOnClick"
+            android:background="#5A6C5C"
+            android:textColor="#CEE8C3"
+            android:textSize="18sp"
+            android:layout_alignTop="@+id/snackButton"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <RadioGroup
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/timeRG"
+            android:layout_below="@+id/percentPaleoTextView"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+
+            <RadioButton
+            android:text="during the past week"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/weekRB"
+                android:textSize="20sp" />
+
+            <RadioButton
+                android:text="during the past month"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/weekRB"
+                android:id="@+id/monthRB"
+                android:textSize="20sp" />
+
+            <RadioButton
+                android:text="since I downloaded the app"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/allRB"
+                android:textSize="20sp"/>
+
+        </RadioGroup>
+
+
+    </RelativeLayout>
+
+</RelativeLayout>
